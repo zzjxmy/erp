@@ -1,0 +1,31 @@
+# Cache and logs
+vendor/*
+/composer.phar
+/composer.lock
+
+.DS_Store
+/.idea
+
+# tags Files
+/.tags
+/.tags*
+/.tags_sorted_by_file
+/resetData.sh
+
+Gemfile.lock
+
+# Ctags Phpcomplete Files
+/tags
+/.phpcomplete_extended/
+
+
+# Kdevelop IDE
+.kdev4
+*.kdev4
+
+#IDE ZEND STUDIO
+.buildpath
+.project
+data/*
+application/config/database.php
+
