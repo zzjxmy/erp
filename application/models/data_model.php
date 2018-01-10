@@ -122,7 +122,7 @@ class Data_model extends CI_Model{
 					invId,locationId,billDate,sum(qty) as qty,
 					sum(case when transType=150501 or transType=150502 or transType=150807 or transType=150706 or billType="INI" or transType=103091 then amount else 0 end) as inamount,
 					sum(case when transType=150501 or transType=150502 or transType=150706 or billType="INI" or transType=103091 then qty else 0 end) as inqty
-				from '.$this->db->dbprefix('invoice_info').' where isDelete=0 '.$where.' group by invId,locationId';
+				from '.$this->db->dbprefix('invoice_info').' where isDelete=0 '.$where.' group by invId,locationId,billDate';
 	    $list = $this->mysql_model->query($sql,2); 	
 		foreach($list as $arr=>$row){
 		    $v['qty'][$row['invId']][$row['locationId']]      = $row['qty'];                      
@@ -268,7 +268,7 @@ class Data_model extends CI_Model{
 					a.id,a.type,a.difMoney,a.name,a.number,(a.difMoney + ifnull(b.arrears,0)) as amount,b.arrears
 				from '.$this->db->dbprefix('contact').' as a 
 				left join 
-					(select buId,billType,sum(arrears) as arrears from '.$this->db->dbprefix('invoice').' where isDelete=0 '.$where1.' group by buId) as b 
+					(select buId,billType,sum(arrears) as arrears from '.$this->db->dbprefix('invoice').' where isDelete=0 '.$where1.' group by buId,billType) as b 
 			    on a.id=b.buId  
 				where '.$where2;
 		return $this->mysql_model->query($sql,$type); 	
@@ -282,7 +282,7 @@ class Data_model extends CI_Model{
 		            b.payment,(a.amount + ifnull(b.payment,0)) as amount
 		        from '.$this->db->dbprefix('account').' as a 
 				left join 
-				    (select accId,billDate,sum(payment) as payment from '.$this->db->dbprefix('account_info').' where isDelete=0 '.$where1.' GROUP BY accId) as b 
+				    (select accId,billDate,sum(payment) as payment from '.$this->db->dbprefix('account_info').' where isDelete=0 '.$where1.' GROUP BY accId,billDate) as b 
 			    on a.id=b.accId  
 				where '.$where2;	
 		return $this->mysql_model->query($sql,$type);		

@@ -31,7 +31,7 @@ class Report extends CI_Controller {
 			    $fund2 += $row['amount'];
 			} 
 		}
-		$fund1 = round($fund1,2); 
+		$fund1 = round($fund1,2);
 		$fund2 = round($fund2,2); 
 		
 		$contact1 = $contact2 = 0;
@@ -46,12 +46,14 @@ class Report extends CI_Controller {
 		        $contact2 = 0; 
 			}
 		}
-		$contact1 = round($contact1,2); 
+
+        $contact1 = round($contact1,2);
 		$contact2 = round($contact2,2); 
 
-		$list = $this->data_model->get_invoice_infosum('a.isDelete=0 and a.billType="PUR" and billDate>="'.date('Y-m-1').'" and billDate<="'.date('Y-m-d').'" '.$this->common_model->get_location_purview().' group by a.invId,a.locationId');
+		$list = $this->data_model->get_invoice_infosum('a.isDelete=0 and a.billType="PUR" and billDate>="'.date('Y-m-1').'" and billDate<="'.date('Y-m-d').'" '.$this->common_model->get_location_purview().' group by a.id,a.invId,a.locationId');
 		$purchase1 = 0;
-		foreach ($list as $arr=>$row) {
+
+        foreach ($list as $arr=>$row) {
 			$purchase1 += $row['sumamount']; 
 		}
 		$purchase2 = count($list);
@@ -59,7 +61,7 @@ class Report extends CI_Controller {
 		$purchase2 = round($purchase2,$this->systems['qtyPlaces']); 
 		
 		$sales1 = $sales2 = 0;   
-		$list   = $this->data_model->get_invoice_infosum('a.isDelete=0 and billType="SALE" and billDate>="'.date('Y-m-1').'" and billDate<="'.date('Y-m-d').'" '.$this->common_model->get_location_purview().' group by a.invId,a.locationId'); 
+		$list   = $this->data_model->get_invoice_infosum('a.isDelete=0 and billType="SALE" and billDate>="'.date('Y-m-1').'" and billDate<="'.date('Y-m-d').'" '.$this->common_model->get_location_purview().' group by a.id,a.invId,a.locationId');
 		foreach ($list as $arr=>$row) {
 		    $qty = $row['sumqty']>0 ? -abs($row['sumqty']):abs($row['sumqty']);    
 			$amount = $row['sumamount'];                  
