@@ -510,8 +510,9 @@ class Report extends CI_Controller {
 		if ($profit==1) {
 			$info  = $this->data_model->get_profit('and billDate<="'.$endDate.'"');  
 		}                         
-		$list  = $this->data_model->get_invoice_infosum($where.' group by a.invId, a.locationId'); 
-		foreach ($list as $arr=>$row) {
+		$list  = $this->data_model->get_invoice_infosum($where.' group by a.invId, a.locationId,a.id');
+
+        foreach ($list as $arr=>$row) {
 		    $sum1 += $qty = $row['sumqty']>0 ? -abs($row['sumqty']):abs($row['sumqty']);   
 			$sum3 += $amount = $row['sumamount'];                     
 			$unitPrice = $qty!=0 ? $amount/$qty : 0;                  
@@ -550,7 +551,7 @@ class Report extends CI_Controller {
 		$data['status'] = 200;
 		$data['msg']    = 'success';
 		$data['data']['page']      = $page;
-		$data['data']['records']   = $this->data_model->get_invoice_infosum($where.' group by a.invId, a.locationId',3);  
+		$data['data']['records']   = $this->data_model->get_invoice_infosum($where.' group by a.invId, a.locationId,a.id',3);
 		$data['data']['total']     = ceil($data['data']['records']/$rows);                 
 		$data['data']['rows']      = isset($v) ? $v : array();
 		$data['data']['userdata']['billId']      = 0;
