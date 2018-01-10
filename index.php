@@ -1,5 +1,5 @@
 <?php
-date_default_timezone_set('Asia/shanghai'); 
+date_default_timezone_set('Asia/shanghai');
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
