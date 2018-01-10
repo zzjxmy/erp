@@ -412,22 +412,22 @@ function markupVension(){
 	var imgModel = $("<img id='icon-vension' src='' alt=''/>");
 	if(SYSTEM.siType === 1){
 		switch(SYSTEM.siVersion){
-			case 1:	imgModel.attr('src',imgSrcList.baseTrial).attr('alt','基础版试用版');
+			case 1:	imgModel.attr('src',imgSrcList.baseTrial).attr('alt','标准版');
 				break;
-			case 2:	imgModel.attr('src',imgSrcList.baseExp).attr('alt','免费版（百度版）');
+			case 2:	imgModel.attr('src',imgSrcList.baseExp).attr('alt','标准版');
 				break;
-			case 3: imgModel.attr('src',imgSrcList.base).attr('alt','基础版');//标准版
+			case 3: imgModel.attr('src',imgSrcList.base).attr('alt','标准版');//标准版
 				break;
-			case 4: imgModel.attr('src',imgSrcList.baseExp).attr('alt','基础版体验版');//标准版
+			case 4: imgModel.attr('src',imgSrcList.baseExp).attr('alt','标准版');//标准版
 				break;
 		};
 	} else {
 		switch(SYSTEM.siVersion){
-			case 1:	imgModel.attr('src',imgSrcList.standardTrial).attr('alt','标准版试用版');
+			case 1:	imgModel.attr('src',imgSrcList.standardTrial).attr('alt','标准版');
 				break;
 			case 3: imgModel.attr('src',imgSrcList.standard).attr('alt','标准版');//标准版
 				break;
-			case 4: imgModel.attr('src',imgSrcList.standardExp).attr('alt','标准版体验版');//标准版
+			case 4: imgModel.attr('src',imgSrcList.standardExp).attr('alt','标准版');//标准版
 				break;
 		};
 	};
@@ -543,26 +543,8 @@ var _hmt = _hmt || [];
     <div id="main-hd" class="cf">
       <div class="tit"> <a class="company" id="companyName" href="javascript:;" title=""></a> <span class="period" id="period"></span> </div>
       <ul class="user-menu">
-      	<!--<li class="qq"><a href="" target="_blank" id="mobile" title="手机版">手机版</a></li>
-      	<li class="space">|</li>-->
-      	<li class="qq"><a href="" onClick="return false;" id="wpa">QQ咨询：1159995880</a></li>
-      	<li class="space">|</li>
-      	<li><a href="https://shop112212643.taobao.com" target="_blank" class="buy-now">购买</a></li>
-        <li class="space">|</li>
       	<li id="sysSkin">换肤</li>
         <li class="space">|</li>
-        
-      	<li><a class="service-tab" data-tab="3">在线提问</a></li>
-		<li class="space">|</li>
-        <!-- 
-        <li><a href="javascript:void(0);" onClick="window.location.href='';return false;">返回助手</a></li>-->
-        <!--<li class="space">|</li>-->
-        <!-- 
-        <li id="yswb-tab"><a href="" target="_blank">社区</a></li>
-        <li class="space">|</li>
-         -->
-       <!-- <li><a href="" target="_blank">帮助</a></li>
-        <li class="space">|</li>-->
         <li><a href="<?php echo site_url('login/out')?>">退出</a></li>
       </ul>  
     </div>

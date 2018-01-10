@@ -456,12 +456,12 @@ var dataReflush, list = {
 		dataRight: "SettAcct_QUERY",
 		target: "setting-base"
 	},
-	//shippingAddress: {
-//		name: "发货地址管理",
-//		href: "../settings/shippingaddress",
-//		dataRight: "DELIVERYADDR_QUERY",
-//		target: "setting-base"
-//	},
+	// shippingAddress: {
+	// 	name: "发货地址管理",
+	// 	href: "../settings/shippingaddress",
+	// 	dataRight: "DELIVERYADDR_QUERY",
+	// 	target: "setting-base"
+	// },
 	customerCategoryList: {
 		name: "客户类别",
 		href: "../settings/category_list?typeNumber=customertype",
@@ -542,13 +542,13 @@ var dataReflush, list = {
 //		href: "../settings/backup",
 //		dataRight: "",
 //		target: "setting-advancedSetting"
-//	} 
-	//backup: {
-//		name: "备份与恢复",
-//		href: "../../ebak",
-//		dataRight: "",
-//		target: "setting-advancedSetting"
-//	},
+//	}
+// 	backup: {
+// 		name: "备份与恢复",
+// 		href: "../../ebak",
+// 		dataRight: "",
+// 		target: "setting-advancedSetting"
+// 	},
 	//reInitial: {
 //		name: "重新初始化",
 //		href: "",
@@ -602,7 +602,7 @@ var dataReflush, list = {
 			case 3:
 				break;
 			case 4:
-				this._hide(["backup"])
+				// this._hide(["backup"])
 			}
 			b && (3 == c && this._show(["reInitial"]), this._show(["authority"]), this._show(["backup"])), 2 == a && (1 == SYSTEM.hasOnlineStore ? this._show(["onlineStoreMap", "onlineStoreList", "onlineStoreRelation", "logisticsList", "orderHandle1", "orderHandle2", "orderHandle3", "orderList", "onlineSalesList"]) : 1 == SYSTEM.enableStorage && $(".vip-nav").width(125), 1 == SYSTEM.enableStorage ? this._show(["JDStorageList", "JDStorageGoodsList", "JDStoragePurchaseOrderList", "JDStorageSaleOrderList", "JDStorageInvManage"]) : 1 == SYSTEM.hasOnlineStore && $(".vip-nav").width(120), 1 == SYSTEM.enableAssistingProp && this._show(["assistingProp"])), 1 == SYSTEM.ISSERNUM && this._show(["serNumStatus", "serNumTracer"])
 		},
@@ -746,27 +746,7 @@ $("#nav").on("click", "[rel=pageTab]", function(a) {
 	showClose: !1
 }), function(a) {
 	if (2 === SYSTEM.siVersion && SYSTEM.isOpen) {
-		var b, c = location.protocol + "//" + location.host + "/update_info.jsp",
-			d = '您的单据分录已经录入达到300条，继续使用选择<a href="http://wpa.qq.com/msgrd?V=3&uin=93138905&Site=青城&Menu=yes" target="_blank">购买产品</a>或者完善个人信息赠送1000条免费容量。';
-		SYSTEM.isshortUser ? SYSTEM.isshortUser && (b = "http://wpa.qq.com/msgrd?V=3&uin=93138905&Site=青城&Menu=yes&updateUrl=" + encodeURIComponent(c) + "&warning=" + encodeURIComponent(d) + "&loginPage=http://wpa.qq.com/msgrd?V=3&uin=93138905&Site=青城&Menu=yes&", a.dialog({
-			min: !1,
-			max: !1,
-			cancle: !1,
-			lock: !0,
-			width: 450,
-			height: 490,
-			title: "完善个人信息",
-			content: "url:" + b
-		})) : (b = "http://wpa.qq.com/msgrd?V=3&uin=93138905&Site=青城&Menu=yes&updateUrl=" + encodeURIComponent(c) + "&warning=" + encodeURIComponent(d), a.dialog({
-			min: !1,
-			max: !1,
-			cancle: !1,
-			lock: !0,
-			width: 400,
-			height: 280,
-			title: "完善个人信息",
-			content: "url:" + b
-		}))
+		alert('哎呦错误咯');
 	}
 }(jQuery), $(window).load(function() {
 	function a() {
@@ -866,26 +846,6 @@ $("#nav").on("click", "[rel=pageTab]", function(a) {
 			cancel: !0
 		})
 	}), SYSTEM.siExpired) {
-		var c = [{
-			name: "立即续费",
-			focus: !0,
-			callback: function() {
-				window.open("http://wpa.qq.com/msgrd?V=3&uin=93138905&Site=青城&Menu=yes&zh-CHS&accIds=" + SYSTEM.DBID)
-			}
-		}, {
-			name: "下次再说"
-		}],
-			d = ['<div class="ui-dialog-tips">', "<p>谢谢您使用本产品，您的当前服务已经到期，到期3个月后数据将被自动清除，如需继续使用请购买/续费！</p>", '<p style="color:#AAA; font-size:12px;">(续费后请刷新页面或重新登录。)</p>', "</div>"].join("");
-		$.dialog({
-			width: 400,
-			min: !1,
-			max: !1,
-			title: "系统提示",
-			fixed: !0,
-			lock: !0,
-			button: c,
-			resize: !1,
-			content: d
-		})
+		alert('续费个毛线啊');
 	}
 });
